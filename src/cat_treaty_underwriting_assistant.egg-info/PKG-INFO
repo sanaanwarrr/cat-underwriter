@@ -122,28 +122,6 @@ PYTHONPATH=src streamlit run app_streamlit.py
 pytest
 ```
 
-## GitHub Models integration
-
-The repo runs without an API key using a rule-based demo extractor.
-
-To use GitHub Models:
-
-1. Copy `.env.example` to `.env`.
-2. Add your `GITHUB_TOKEN`.
-3. Install optional LLM dependency:
-
-```bash
-pip install openai python-dotenv
-```
-
-4. Run:
-
-```bash
-cat-triage triage data/sample_slips/treaty_slip_hurricane_florida.md --use-llm
-```
-
-The LLM output is still validated by the `TreatySlip` Pydantic schema before scoring.
-
 ## Risk score logic
 
 The current deterministic scoring model uses:
@@ -157,43 +135,6 @@ The current deterministic scoring model uses:
 | Document quality risk | 10% |
 
 The scoring logic lives in `src/cat_underwriting/scoring.py` and has unit tests.
-
-## Databricks extension
-
-The local MVP stores results in SQLite. To adapt this to Databricks:
-
-1. Keep `TreatySlip` and `RiskAssessment` as the canonical schemas.
-2. Convert `assessment.model_dump(mode="json")` into a Spark DataFrame.
-3. Write to Delta tables such as:
-
-```python
-spark.createDataFrame([assessment.model_dump(mode="json")]).write.mode("append").saveAsTable("cat_triage.treaty_assessments")
-```
-
-Suggested Delta tables:
-
-- `cat_triage.treaty_submissions`
-- `cat_triage.extracted_terms`
-- `cat_triage.guideline_flags`
-- `cat_triage.risk_assessments`
-- `cat_triage.historical_losses`
-- `cat_triage.hazard_scores`
-
-## What to improve next
-
-Good next steps:
-
-1. Replace sample Markdown slips with real PDF slips.
-2. Install Docling or MarkItDown for higher-quality document extraction.
-3. Add ChromaDB guideline retrieval.
-4. Add geocoding for county/ZIP exposure schedules.
-5. Add Delta Lake writes from Databricks notebooks.
-6. Add a Deepnote workflow/dashboard.
-7. Add human-in-the-loop review fields.
-
-## Resume bullet
-
-> Built an AI-assisted catastrophe treaty underwriting triage pipeline that extracts structured treaty terms from broker submissions, validates LLM outputs with Pydantic schemas, applies guideline/referral checks, and scores hurricane accumulation risk using deterministic Python logic and synthetic hazard/loss data.
 
 ## Important disclaimer
 
