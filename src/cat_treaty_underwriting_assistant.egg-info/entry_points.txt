@@ -1,0 +1,2 @@
+[console_scripts]
+cat-triage = cat_underwriting.cli:app

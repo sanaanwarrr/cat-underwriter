@@ -1,0 +1,8 @@
+year,territory,peril,event_name,gross_loss_usd
+2017,Florida,Hurricane,Irma,310000000
+2018,Florida,Hurricane,Michael,220000000
+2020,Louisiana,Hurricane,Laura,180000000
+2021,Louisiana,Hurricane,Ida,260000000
+2022,Florida,Hurricane,Ian,540000000
+2023,California,Wildfire,Sample Fire A,90000000
+2024,Texas,Windstorm,Sample Convective Storm,70000000

@@ -1,0 +1,29 @@
+[project]
+name = "cat-treaty-underwriting-assistant"
+version = "0.1.0"
+description = "AI-assisted catastrophe treaty underwriting triage MVP"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.7",
+  "pandas>=2.0",
+  "typer>=0.12",
+  "rich>=13.0",
+  "python-dotenv>=1.0",
+  "pypdf>=4.0",
+  "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+llm = ["openai>=1.40"]
+rag = ["chromadb>=0.5"]
+docs = ["markitdown>=0.1", "docling>=2.0"]
+ui = ["streamlit>=1.36"]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+cat-triage = "cat_underwriting.cli:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

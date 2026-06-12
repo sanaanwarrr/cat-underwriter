@@ -1,0 +1,8 @@
+# Optional integrations. Install only when needed.
+openai>=1.40
+chromadb>=0.5
+markitdown>=0.1
+docling>=2.0
+streamlit>=1.36
+databricks-sql-connector>=3.0
+deltalake>=0.19

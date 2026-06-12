@@ -1,0 +1,49 @@
+{
+  "treaty": {
+    "cedent_name": "Gulf Mutual Insurance Company",
+    "broker_name": "Atlantic Re Intermediaries",
+    "treaty_type": "Property Cat XOL",
+    "effective_date": "2026-06-01",
+    "expiration_date": "2027-06-01",
+    "limit_amount_usd": 50000000.0,
+    "attachment_point_usd": 25000000.0,
+    "covered_perils": [
+      "Hurricane",
+      "Windstorm",
+      "Storm Surge"
+    ],
+    "excluded_perils": [
+      "Cyber",
+      "War",
+      "Nuclear",
+      "Communicable Disease"
+    ],
+    "territories": [
+      "Florida",
+      "Gulf Coast",
+      "Southeast U.S"
+    ],
+    "reinstatements": 1,
+    "confidence_score": 0.95,
+    "source_file": "/var/folders/vd/h1__3_jn0qj1pvgb_x36t9bc0000gn/T/tmpej5h6ikw/treaty_slip_hurricane_florida.md",
+    "raw_extraction_notes": "Rule-based fallback extractor used."
+  },
+  "risk_score": 62.1,
+  "risk_tier": "Medium",
+  "breakdown": {
+    "geography_hazard_score": 85.3,
+    "attachment_limit_severity_score": 50.0,
+    "historical_loss_overlap_score": 95.0,
+    "exclusion_ambiguity_score": 30.0,
+    "document_quality_score": 5.0
+  },
+  "flags": [
+    {
+      "flag_type": "referral",
+      "severity": "warning",
+      "message": "Florida hurricane/windstorm exposure requires underwriter referral.",
+      "evidence": "[underwriting_guidelines.md] Florida hurricane or windstorm exposure requires underwriter referral when the cedent has material coastal concentration, significant homeowners exposure, or incomplete ZIP-level exposure data."
+    }
+  ],
+  "underwriter_summary": "Gulf Mutual Insurance Company submission scored 62.1/100 (Medium). The slip covers Hurricane, Windstorm, Storm Surge in Florida, Gulf Coast, Southeast U.S with a limit of $50,000,000 attaching at $25,000,000. Key triage notes: Florida hurricane/windstorm exposure requires underwriter referral."
+}
