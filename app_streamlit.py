@@ -1,10 +1,10 @@
-from __future__ import annotations
-
+import sys
 from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent))
+
+from __future__ import annotations
 import tempfile
-
 import streamlit as st
-
 from cat_underwriting.pipeline import run_pipeline
 
 st.set_page_config(page_title="Cat Treaty Underwriting Assistant", layout="wide")
